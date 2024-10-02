@@ -8,7 +8,7 @@ firing_samples = np.load('firing_samples.npy', allow_pickle=True)  # 8 firing ve
 
 
 #a time vector
-duration = 20  # seconds                                                                    
+duration = 200  # seconds                                                                    
 fs = 10000  # sampling frequency in Hz
 total_samples = duration * fs  # total number of samples in the EMG signal
 t = np.arange(0, duration, 1/fs)
