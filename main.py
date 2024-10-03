@@ -64,3 +64,22 @@ plt.xlabel('Time [s]')
 plt.ylabel('Amplitude [A.U.]')
 plt.title('EMG Signal (10-10.5 s)')
 plt.show()
+
+#filter with hanning
+#i second = 10000 points when we have 10000Hz
+window =  np.hanning(10000)
+hanning_filter=[]
+
+for train in ap_trains:
+    smooth = np.convolve(train, window, mode = 'same')
+    hanning_filter.append(smooth)
+
+plt.figure(figsize=(12, 4))
+
+for i, hanning_filter in enumerate(hanning_filter):
+    plt.plot(t, hanning_filter, label=f'Unit {i + 1}')
+
+plt.xlabel('Time [s]')
+plt.ylabel('Amplitude [A.U.]')
+plt.title('EMG Signal (10-10.5 s)')
+plt.show()
