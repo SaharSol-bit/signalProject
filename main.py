@@ -52,3 +52,15 @@ plt.title('Action Potential Train for Motor Unit 1 (10-10.5 s)')
 
 plt.tight_layout()
 plt.show()
+
+# Sum the 8 action potential trains
+emg_signal = np.sum(ap_trains, axis=0)
+
+# Plot the EMG signal in the interval 10-10.5 s
+plt.figure(figsize=(12, 4))
+mask = (t >= 10) & (t <= 10.5)
+plt.plot(t[mask], emg_signal[mask], linewidth=0.5)
+plt.xlabel('Time [s]')
+plt.ylabel('Amplitude [A.U.]')
+plt.title('EMG Signal (10-10.5 s)')
+plt.show()
