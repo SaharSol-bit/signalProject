@@ -81,5 +81,5 @@ for i, hanning_filter in enumerate(hanning_filter):
 
 plt.xlabel('Time [s]')
 plt.ylabel('Amplitude [A.U.]')
-plt.title('EMG Signal (10-10.5 s)')
+plt.title('Filtered Signals for 8 units')
 plt.show()
