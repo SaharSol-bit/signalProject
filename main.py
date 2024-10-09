@@ -15,13 +15,16 @@ t = np.arange(0, duration, 1/fs)
 
 # Initialize list to store trains
 ap_trains = []
-
+binary_vectors= []
 # For each motor creat a binary (200,000 samples)
 for i in range(8):
     binary_vector = np.zeros(total_samples)
     for firing in firing_samples[0][i]:
         if 0 <= firing < total_samples:
             binary_vector[int(firing)] = 1
+    
+    # Store the binary vector
+    binary_vectors.append(binary_vector)
     
  #Convolve with action potential
  #This operation effectively places the action potential waveform at each firing time, 
@@ -72,7 +75,7 @@ plt.show()
 window =  np.hanning(10000)
 hanning_filter=[]
 
-for train in ap_trains:
+for train in binary_vectors:
     smooth = np.convolve(train, window, mode = 'same')
     hanning_filter.append(smooth)
 
@@ -84,4 +87,16 @@ for i, hanning_filter in enumerate(hanning_filter):
 plt.xlabel('Time [s]')
 plt.ylabel('Amplitude [A.U.]')
 plt.title('Filtered Signals for 8 units')
+plt.show()
+
+#2d
+plt.figure(figsize=(12, 6))
+plt.subplot(2, 1, 1)
+plt.plot(t, binary_vectors[3], label='Binary')
+plt.title('Binary Signal - Unit 4')
+plt.subplot(2, 1, 2)
+plt.plot(t, hanning_filter[3], label='Filtered')
+plt.title('Filtered Signal - Unit 4')
+plt.xlabel('Time (s)')
+plt.tight_layout()
 plt.show()
