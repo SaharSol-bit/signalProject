@@ -70,6 +70,8 @@ plt.show()
 
 
 #___Question 2___
+
+#1a: Create a Hanning window of 10000 points
 #filter with hanning
 #i second = 10000 points when we have 10000Hz
 window =  np.hanning(10000)
@@ -79,6 +81,8 @@ for train in binary_vectors:
     smooth = np.convolve(train, window, mode = 'same')
     hanning_filter.append(smooth)
 
+#2c
+#plot the binary and filtered signals for all 8 units
 plt.figure(figsize=(12, 4))
 for i, filtered_signal in enumerate(hanning_filter):
     plt.plot(t, filtered_signal, label=f'Unit {i + 1}')
@@ -88,6 +92,7 @@ plt.title('Filtered Signals for 8 units')
 plt.show()
 
 #2d
+#plot the binary and filtered signals for unit 4
 plt.figure(figsize=(12, 6))
 plt.subplot(2, 1, 1)
 plt.plot(t, binary_vectors[3], label='Binary')
@@ -100,6 +105,7 @@ plt.tight_layout()
 plt.show()
 
 #2e
+#plot the binary and filtered signals for unit 4 and 7
 plt.figure(figsize=(12, 8))
 plt.subplot(2, 1, 1)
 plt.plot(t, binary_vectors[3], label='Binary')
