@@ -81,18 +81,17 @@ for train in binary_vectors:
 
 plt.figure(figsize=(12, 4))
 
-for i, hanning_filter in enumerate(hanning_filter):
-    plt.plot(t, hanning_filter, label=f'Unit {i + 1}')
-
-
 signTest= np.convolve(hanning_filter[2], action_potentials[2], mode='same')
 
 plt.plot(signTest)
-
-
+for i, hanning_filter in enumerate(hanning_filter):
+    plt.plot(t, hanning_filter, label=f'Unit {i + 1}')
 plt.xlabel('Time [s]')
 plt.ylabel('Amplitude [A.U.]')
 plt.title('Filtered Signals for 8 units')
 plt.show()
 
+
 #2d
+
+#2c
