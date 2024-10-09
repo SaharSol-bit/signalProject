@@ -80,14 +80,13 @@ for train in binary_vectors:
     hanning_filter.append(smooth)
 
 plt.figure(figsize=(12, 4))
-
-for i, hanning_filter in enumerate(hanning_filter):
-    plt.plot(t, hanning_filter, label=f'Unit {i + 1}')
-
+for i, filtered_signal in enumerate(hanning_filter):
+    plt.plot(t, filtered_signal, label=f'Unit {i + 1}')
 plt.xlabel('Time [s]')
 plt.ylabel('Amplitude [A.U.]')
 plt.title('Filtered Signals for 8 units')
 plt.show()
+
 
 #2d
 plt.figure(figsize=(12, 6))
@@ -100,3 +99,5 @@ plt.title('Filtered Signal - Unit 4')
 plt.xlabel('Time (s)')
 plt.tight_layout()
 plt.show()
+
+#2c
