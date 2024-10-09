@@ -65,6 +65,8 @@ plt.ylabel('Amplitude [A.U.]')
 plt.title('EMG Signal (10-10.5 s)')
 plt.show()
 
+
+#___Question 2___
 #filter with hanning
 #i second = 10000 points when we have 10000Hz
 window =  np.hanning(10000)
