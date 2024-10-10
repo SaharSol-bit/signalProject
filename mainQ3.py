@@ -6,8 +6,8 @@ emg_signal = np.load('f.npy')
 
 #our emg signal is 1024 hz
 emg_frequency = 1024
-length_signal=len(emg_signal[0])
-emg_time = np.arange(length_signal)/emg_frequency
+length_signal=len(emg_signal[0]) #get the length of the signal
+emg_time = np.arange(length_signal)/emg_frequency #creats a time vector/array
 print(len(emg_time))
 interference_f= 50
 print (length_signal)
