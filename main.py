@@ -93,6 +93,17 @@ plt.title('Filtered Signals for 8 units')
 plt.show()
 
 #2d
+#plot the binary and filtered signals for unit 4
+plt.figure(figsize=(12, 6))
+plt.subplot(2, 1, 1)
+plt.plot(t, binary_vectors[3], label='Binary')
+plt.title('Binary Signal - Unit 4')
+plt.subplot(2, 1, 2)
+plt.plot(t, hanning_filter[3], label='Filtered')
+plt.title('Filtered Signal - Unit 4')
+plt.xlabel('Time (s)')
+plt.tight_layout()
+plt.show()
 
 #2e
 #plot the binary and filtered signals for unit 4 and 7
