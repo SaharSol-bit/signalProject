@@ -1,4 +1,6 @@
 #Question3
+
+#3a
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -27,3 +29,20 @@ plt.title('EMG Signal with and without 50 Hz Power Line Interference')
 plt.legend()  # Only call legend once
 plt.show()
 print("done")
+
+#3c
+emg_fft = np.fft.fft(emg_signal[0])
+emg_interference_ftt = np.fft.fft(emg_interference)
+# 1/emg_frequency since we want sampling period, the distance between samples
+#fft.fftfreq(n, d=1.0, device=None)
+frequencies = np.fft.fftfreq(len(emg_signal[0]), 1/emg_frequency)
+
+
+plt.figure(figsize=(10, 6))
+plt.plot(frequencies[:len(frequencies)//2], np.abs(emg_interference_ftt)[:len(emg_fft)//2], color = 'red')  # Plot only positive frequencies
+plt.plot(frequencies[:len(frequencies)//2], np.abs(emg_fft)[:len(emg_fft)//2], color = 'blue')
+plt.title('Magnitude Spectrum of EMG Signal')
+plt.xlabel('Frequency (Hz)')
+plt.ylabel('Magnitude (A.U)')
+plt.grid()
+plt.show()

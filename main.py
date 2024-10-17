@@ -105,6 +105,7 @@ plt.xlabel('Time (s)')
 plt.tight_layout()
 plt.show()
 
+
 #2e
 #plot the binary and filtered signals for unit 4 and 7
 plt.figure(figsize=(12, 8))
