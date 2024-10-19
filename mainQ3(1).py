@@ -4,9 +4,8 @@ import matplotlib.pyplot as plt
 
 def cart2pol(x, y):
     # Converts cartesian coordinates to polar coordinates
-    theta = np.arctan2(y, x)
     rho = np.sqrt(x**2 + y**2)
-    return [theta, rho]
+    return [ rho]
 
 # Add 50 Hz power line interference 
 def powerline_interference(signal, fs, f_interference=50, amplitude=0.15):
@@ -57,7 +56,7 @@ def main():
     plt.plot(half_f_axis, Fm_corr[:N//2], label="Corrupted Signal", color='red', linestyle='dashed', linewidth=0.75)
     plt.plot(half_f_axis, Fm_orig[:N//2], label="Original Signal", color='blue', linewidth=0.75)
     plt.xlabel('Frequency [Hz]')
-    plt.ylabel('Magnitude / Phase [A.U.]')
+    plt.ylabel('Magnitude  [A.U.]')
     plt.xlim(0, 512)  
     plt.legend()
     plt.grid(True)
